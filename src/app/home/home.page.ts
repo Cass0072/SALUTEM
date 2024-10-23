@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
   selectedDate: string = '';
   isDatePickerOpen: boolean = false;
 
@@ -21,7 +21,7 @@ export class HomePage {
     { label: 'Sáb', value: 7 },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   // Definimos o tipo do parâmetro 'day' como o mesmo tipo usado no array weekDays
   selectDay(day: { label: string, value: number }): void {
@@ -32,4 +32,7 @@ export class HomePage {
     console.log('Adicionando nova entrada');
   }
 
+  navigateToTreino() {
+    this.router.navigate(['/exercicio']); // Ajuste o caminho conforme necessário
+  }
 }
